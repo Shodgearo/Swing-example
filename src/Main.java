@@ -3,13 +3,25 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.LinkedList;
 
 public class Main extends JFrame {
     public static void main(String[] args) {
         new Main();
     }
 
+    private JPanel canvas;
+    private LinkedList<Oval> list;
+
     public Main() {
+        canvas = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+            }
+        };
+
         initFrame();
     }
 
