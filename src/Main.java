@@ -12,26 +12,42 @@ public class Main extends JFrame {
         new Main();
     }
 
-    private JPanel canvas;
+    private JPanel panel;
     private LinkedList<Oval> list;
 
     public Main() {
-        canvas = new JPanel() {
+        list = new LinkedList<Oval>();
+
+        initPanel();
+        initFrame();
+    }
+
+    private void initPanel() {
+        final int diametr = 30;
+
+        panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
 
+                if (!list.isEmpty()) {
+                    for (Oval oval : list) {
+                        g.fillOval(oval.getX() - diametr / 2, oval.getY() - diametr / 2, diametr, diametr);
+                    }
+                }
             }
         };
 
-        canvas.addMouseListener(new MouseAdapter() {
+        panel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 list.add(new Oval(e));
+
+                repaint();
             }
         });
 
-        initFrame();
+        add(panel);
     }
 
     private void initFrame() {
