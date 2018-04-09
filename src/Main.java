@@ -3,6 +3,8 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 
 public class Main extends JFrame {
@@ -21,6 +23,13 @@ public class Main extends JFrame {
 
             }
         };
+
+        canvas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                list.add(new Oval(e));
+            }
+        });
 
         initFrame();
     }
