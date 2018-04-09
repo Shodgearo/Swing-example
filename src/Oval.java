@@ -19,8 +19,7 @@ public class Oval implements Runnable {
         speed = 1;
         x = e.getX();
         y = e.getY();
-
-        System.out.println(y);
+        
         t.start();
     }
 
