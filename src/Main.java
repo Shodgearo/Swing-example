@@ -41,7 +41,7 @@ public class Main extends JFrame {
         panel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                list.add(new Oval(e));
+                list.add(new Oval(e, Main.this));
 
                 repaint();
             }
